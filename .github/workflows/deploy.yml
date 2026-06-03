@@ -23,7 +23,7 @@ jobs:
         repository: TurboWarp/scratch-gui
         path: scratch-gui
         persist-credentials: false
-        ref: 4ae7c0c
+        ref: 4ae7c0ce64dc89ae9de7970780f7db3349ddb895
     - name: Install Node.js
       uses: actions/setup-node@v4
       with:
