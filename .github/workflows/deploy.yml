@@ -33,8 +33,8 @@ jobs:
       run: |
         cd scratch-gui
         npm ci --legacy-peer-deps
-        npm install scratch-vm@github:TurboWarp/scratch-vm#01c8ecd41c0932b9d30a0a24712636e2bffd0bad --legacy-peer-deps
-        npm install scratch-render@github:TurboWarp/scratch-render#448c215925b5c709d8fcc961f9b57ffec88b06ea --legacy-peer-deps
+        npm install github:TurboWarp/scratch-vm#01c8ecd41c0932b9d30a0a24712636e2bffd0bad --legacy-peer-deps
+        npm install github:TurboWarp/scratch-render#448c215925b5c709d8fcc961f9b57ffec88b06ea --legacy-peer-deps
         NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider ROUTING_STYLE=hash npm run build
     - name: Patch
       run: python3 patch.py
