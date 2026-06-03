@@ -24,6 +24,6 @@ fetchFile = glob.glob('scratch-gui/build/js/editor~embed~fullscreen~player.*.js'
 print(f'Patching JS {fetchFile}')
 with open(fetchFile, 'r') as f:
   contents = f.read()
-  contents = contents.replace('e=>{if("<"!==', 'e=>{if("\\n"!==')
+  contents = contents.replace('e=>{if("<"!==e.data[0]', 'e=>{if(false')
 with open(fetchFile, 'w') as f:
   f.write(contents)
