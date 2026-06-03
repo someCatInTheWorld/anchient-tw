@@ -4,8 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-  schedule:
-    - cron: '52 18 * * 2'
 
 concurrency:
   group: "deploy"
@@ -25,6 +23,7 @@ jobs:
         repository: TurboWarp/scratch-gui
         path: scratch-gui
         persist-credentials: false
+        ref: 4ae7c0c
     - name: Install Node.js
       uses: actions/setup-node@v4
       with:
@@ -33,7 +32,7 @@ jobs:
       run: |
         cd scratch-gui
         npm ci
-        NODE_ENV=production ROUTING_STYLE=hash npm run build
+        NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider ROUTING_STYLE=hash npm run build
     - name: Patch
       run: python3 patch.py
     - name: Upload pages artifact
